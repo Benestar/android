@@ -25,7 +25,7 @@ for i in $(find ../../fastlane | grep png) ; do
     fi
     
     # fallback to english if there is not translation
-    if [ -n $text ]; then
+    if [ -n "$text" ]; then
         text=$(grep $textID ../../src/main/res/values/strings.xml | cut -d">" -f2 | cut -d"<" -f1 | sed s'#\&amp;#\\&#')
     fi
     
@@ -36,5 +36,5 @@ for i in $(find ../../fastlane | grep png) ; do
         sed "s#display:none#display:visible#" -i temp.svg
     fi
     
-    inkscape temp.svg -e $i
+    inkscape temp.svg -e $i 2>/dev/null
 done
