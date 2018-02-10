@@ -36,5 +36,5 @@ for i in $(find ../../fastlane | grep png) ; do
         sed "s#display:none#display:visible#" -i temp.svg
     fi
     
-    inkscape temp.svg -e $i 2>/dev/null
+    inkscape temp.svg -h 512 -e $i 2>/dev/null
 done
